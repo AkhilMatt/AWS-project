@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, app
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 import pymysql
 
 app = Flask(__name__)
