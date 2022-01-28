@@ -1,0 +1,390 @@
+<!DOCTYPE html>  
+<html lang = "en">  
+<head>  
+  <title>Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <!--CSS-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    #toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 77%;
+  left:40%;  
+}
+  </style>
+
+<style>
+  th {
+    padding: 20px;
+  }
+  tbody {
+  display: block;
+  height: 200px;
+  overflow: auto;
+}
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+thead {
+  width: calc( 100% - 1em )
+}
+table {
+  width: 100%;
+}
+  </style>
+
+
+</head> 
+
+<body> 
+<!--Navigation Bar-->
+<div class="navbar-fixed">
+  <nav class="grey darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="" class="brand-logo">Manage Students</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/login"><i class="material-icons left">account_circle</i>Back to Login</a></li>
+        <li><a href="#modal1" class = "modal-trigger"><i class="material-icons left">add_circle_outline</i>Add Student</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>
+
+<ul id="nav-mobile" class="sidenav">
+  <li><a href="/">Home</a></li>
+<li><a href="/login">Back to login</a></li>
+<li><a href="#modal1" class = "modal-trigger">Add Student</a></li>
+</ul>
+
+
+<!--Add student Modal-->
+<div id= "modal1" class = "modal">
+  <div class="modal-content">
+  <h4>ADD STUDENT</h4>
+
+  <div class= "row">
+    <form class = "col s12" method="POST" action="/add_student">
+      <div class = "row modal-from-row">
+        <div class = "input-field col s12">
+          <i class="material-icons prefix">face</i>
+          <input id="first_name" name = "first_name" type="text" class="validate" required>
+          <label for="first_name">First Name</label>
+        </div>
+      </div>
+
+      <div class ="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">face</i>
+          <input id="last_name" name = "last_name" type="text" class="validate" required>
+          <label for="last_name">Last Name</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="roll_no" name = "roll_no" type="text" class="validate" required>
+        <label for="roll_no">Roll no</label>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "input-field col s12">
+        <input id = "sub1_marks" name = "sub1_marks" type = "text" class = "validate" required>
+        <label for = "sub1_marks">Subject 1 marks</label>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "input-field col s12">
+        <input id = "sub2_marks" name = "sub2_marks" type = "text" class = "validate" required>
+        <label for = "sub2_marks">Subject 2 marks</label>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "input-field col s12">
+        <input id = "sub3_marks" name = "sub3_marks" type = "text" class = "validate" required>
+        <label for = "sub3_marks">Subject 3 marks</label>
+      </div>
+    </div>
+
+    <div class = 'container'>
+      <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect' onclick = "M.toast({html: 'Student record added successfully', displayLength: Infinity})">Add</button>
+    </div>
+    
+    </form>    
+  </div>
+
+</div>
+
+  </div>
+
+
+<!--Edit Modal-->
+<div id= "modal2" class = "modal">
+  <div class="modal-content">
+  <h4>UPDATE STUDENT</h4>
+
+  <div class= "row">
+    <form class = "col s12" method="POST" id = "UpdateForm" action="/insert_student">
+      <div class = "row modal-from-row">
+        <div class = "input-field col s12">
+          <input id="first_name" name = "first_name" type="text" class="validate" required>
+          <label for="first_name">First Name</label>
+        </div>
+      </div>
+
+      <div class ="row">
+        <div class="input-field col s12">
+          <input id="last_name" name = "last_name" type="text" class="validate" required>
+          <label for="last_name">Last Name</label>
+      </div>
+    </div>
+
+    <!--<div class ="row">
+      <div class="input-field col s12">
+        <input id="email" name = "email" type="text" class="validate" required>
+        <label for="email">email</label>
+    </div>
+  </div>
+  <div class ="row">
+    <div class="input-field col s12">
+      <input id="password" name = "password" type="text" class="validate" required>
+      <label for="password">password</label>
+  </div>
+</div>-->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="roll_no" name = "roll_no" type="text" class="validate" required>
+        <label for="roll_no">Roll no</label>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "input-field col s12">
+        <input id = "sub1_marks" name = "sub1_marks" type = "text" class = "validate" required>
+        <label for = "sub1_marks">Subject 1 marks</label>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "input-field col s12">
+        <input id = "sub2_marks" name = "sub2_marks" type = "text" class = "validate" required>
+        <label for = "sub2_marks">Subject 2 marks</label>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "input-field col s12">
+        <input id = "sub3_marks" name = "sub3_marks" type = "text" class = "validate" required>
+        <label for = "sub3_marks">Subject 3 marks</label>
+      </div>
+    </div>
+
+    <div class = 'container'>
+      <button type='submit' name='btn_login' class='col s12 blue btn btn-large waves-effect' onclick = "M.toast({html: 'Student record updated successfully', displayLength: Infinity})">Update</button>
+    </div>
+    </form>    
+  </div>
+
+</div>
+  </div>
+
+
+
+
+
+<!--<div class= "container">
+  <div class = "row">
+    <div class = "col s1">
+        <h3>Manage Students
+        <button type = "button" class = "btn" >Add student</button></h3>
+      </div>
+    </div>-->
+    <center>
+      <div class="section"></div>
+      <div class="section"></div>
+      <div class="section"></div> 
+      <div class="section"></div>
+    <div class="z-depth-3  blue-grey lighten-5  row" style="display: inline-block; padding: 32px 48px 10px 48px;">
+      <!--<div class = "section"></div>-->
+      <nav>
+        <div class = "grey darken-4 nav-wrapper">
+          <form>
+            <div class = "input-field">
+              <input id = "search" type = "search" placeholder = "Search by first name or roll no" onkeyup =  "filter()" required>
+              <label class= "label-icon" for = "search"><i class = "material-icons">search</i></label>
+              <i class = "material-icons">close</i>
+              </div>
+            </form>
+        </div>
+      </nav>
+
+      <!--{% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="row">
+        <div class="col s12 m10 l10 offset-m1 offset-l1">
+            <div class="chip teal lighten-3" style="padding: 10px 10px 10px 10px; width: 100%; height: 50px;">
+                <i class=" close material-icons right white-text">close</i>
+                
+                <h6>{{message}}<h6>
+            </div>
+        </div>
+    </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}-->
+      
+      
+
+
+
+      <table id = "table_id" class = "centered highlight">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last name</th>
+            <th>Roll Number</th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            <th>Subject 3</th>
+          </tr>
+        </thead>
+        
+        
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+          
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+        
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+        
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+        
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+        
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+        
+        <tr>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+
+        <tr>
+          <td><center>a</center></td>
+          <td><center>a</center></td>
+          <td><center>1</center></td>
+          <td><center>10</center></td>
+          <td><center>10</center></td>
+          <td><center>10</center></td>
+          </tr>
+        <tr>
+          <td><center>b</center></td>
+          <td><center>b</center></td>
+          <td><center>2</center></td>
+          <td><center>20</center></td>
+          <td><center>20</center></td>
+          <td><center>20</center></td>
+          </tr>
+
+          <div class="col-md-12 center text-center">
+            <span class="left" id="total_reg"></span>
+                  <ul class="pagination pager" id="myPager"></ul>
+                </div>
+      </table>
+     
+ 
+    </div>
+  </center>
+
+  </div>
+</div>
+
+
+
+<!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+  function change_action(x) {
+    var frm = document.getElementById('UpdateForm') || null;
+    if(frm) {
+      frm.action = x
+    }
+  }
+  </script>
+  <script>
+    function filter(){
+      var input, filter, table, tr, td_f_name, td_roll, i, txtValue;
+      input =  document.getElementById("search");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("table_id");
+      tr = table.getElementsByTagName("tr");
+      
+      for (i = 0; i<tr.length; i++){
+        td_f_name = tr[i].getElementsByTagName("td")[0]; //search by first name
+        td_roll = tr[i].getElementsByTagName('td')[2]; //Search by roll no
+        if (td_f_name && td_roll){
+          f_name = td_f_name.textContent || td_f_name.innerText;
+          roll = td_roll.textContent || td_roll.innerText;
+          if (f_name.toUpperCase().indexOf(filter)>-1 || roll.indexOf(filter)>-1){
+            tr[i].style.display = "";
+          } else{
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+  <script src="static/js/materialize.js"></script>
+  <script src="static/js/initfinal.js"></script>
+  <script src="static/js/pagination.js"></script>
+</body>  
+</html> 
