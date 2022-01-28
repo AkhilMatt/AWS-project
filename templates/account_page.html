@@ -6,6 +6,21 @@
   <!--CSS-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    #toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 77%;
+  left:40%;  
+}
+  </style>
+
+<style>
+  th {
+    padding: 20px;
+  }
+  </style>
+
 </head> 
 
 <body> 
@@ -15,9 +30,9 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="" class="brand-logo">Manage Students</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Back to Login</a></li>
-        <li><a href="#modal1" class = "modal-trigger">Add Student</a></li>
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/login"><i class="material-icons left">account_circle</i>Back to Login</a></li>
+        <li><a href="#modal1" class = "modal-trigger"><i class="material-icons left">add_circle_outline</i>Add Student</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
@@ -25,9 +40,9 @@
 </div>
 
 <ul id="nav-mobile" class="sidenav">
-  <li><a href="/">Home</a></li>
-<li><a href="/login">Back to login</a></li>
-<li><a href="#modal1" class = "modal-trigger">Add Student</a></li>
+  <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+  <li><a href="/login"><i class="material-icons left">account_circle</i>Back to Login</a></li>
+  <li><a href="#modal1" class = "modal-trigger"><i class="material-icons left">add_circle_outline</i>Add Student</a></li>
 </ul>
 
 
@@ -52,47 +67,34 @@
       </div>
     </div>
 
-    <div class ="row">
-      <div class="input-field col s12">
-        <input id="email" name = "email" type="text" class="validate" required>
-        <label for="email">Email</label>
-    </div>
-  </div>
-  <div class ="row">
-    <div class="input-field col s12">
-      <input id="password" name = "password" type="text" class="validate" required>
-      <label for="password">Password</label>
-  </div>
-</div>
-
-    <!--<div class="row">
+    <div class="row">
       <div class="input-field col s12">
         <input id="roll_no" name = "roll_no" type="text" class="validate" required>
         <label for="roll_no">Roll no</label>
       </div>
-    </div>-->
+    </div>
 
-    <!--<div class = "row">
+    <div class = "row">
       <div class = "input-field col s12">
-        <input id = "sub1_marks" name = "sub1_marks" type = "number" class = "validate" required>
+        <input id = "sub1_marks" name = "sub1_marks" type = "text" class = "validate" required>
         <label for = "sub1_marks">Subject 1 marks</label>
       </div>
     </div>
     <div class = "row">
       <div class = "input-field col s12">
-        <input id = "sub2_marks" name = "sub2_marks" type = "number" class = "validate" required>
+        <input id = "sub2_marks" name = "sub2_marks" type = "text" class = "validate" required>
         <label for = "sub2_marks">Subject 2 marks</label>
       </div>
     </div>
     <div class = "row">
       <div class = "input-field col s12">
-        <input id = "sub3_marks" name = "sub3_marks" type = "number" class = "validate" required>
+        <input id = "sub3_marks" name = "sub3_marks" type = "text" class = "validate" required>
         <label for = "sub3_marks">Subject 3 marks</label>
       </div>
-    </div>-->
+    </div>
 
     <div class = 'container'>
-      <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect'>Add</button>
+      <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect' onclick = "M.toast({html: 'Student record added successfully!', displayLength: Infinity})">Add</button>
     </div>
     
     </form>    
@@ -104,7 +106,6 @@
 
 
 <!--Edit Modal-->
-<!--NEEDS TO ACCEPT THE EMAIL-->
 <div id= "modal2" class = "modal">
   <div class="modal-content">
   <h4>UPDATE STUDENT</h4>
@@ -125,7 +126,7 @@
       </div>
     </div>
 
-    <div class ="row">
+    <!--<div class ="row">
       <div class="input-field col s12">
         <input id="email" name = "email" type="text" class="validate" required>
         <label for="email">email</label>
@@ -136,35 +137,35 @@
       <input id="password" name = "password" type="text" class="validate" required>
       <label for="password">password</label>
   </div>
-</div>
-    <!--<div class="row">
+</div>-->
+    <div class="row">
       <div class="input-field col s12">
         <input id="roll_no" name = "roll_no" type="text" class="validate" required>
         <label for="roll_no">Roll no</label>
       </div>
-    </div>-->
+    </div>
 
-    <!--<div class = "row">
+    <div class = "row">
       <div class = "input-field col s12">
-        <input id = "sub1_marks" name = "sub1_marks" type = "number" class = "validate" required>
+        <input id = "sub1_marks" name = "sub1_marks" type = "text" class = "validate" required>
         <label for = "sub1_marks">Subject 1 marks</label>
       </div>
     </div>
     <div class = "row">
       <div class = "input-field col s12">
-        <input id = "sub2_marks" name = "sub2_marks" type = "number" class = "validate" required>
+        <input id = "sub2_marks" name = "sub2_marks" type = "text" class = "validate" required>
         <label for = "sub2_marks">Subject 2 marks</label>
       </div>
     </div>
     <div class = "row">
       <div class = "input-field col s12">
-        <input id = "sub3_marks" name = "sub3_marks" type = "number" class = "validate" required>
+        <input id = "sub3_marks" name = "sub3_marks" type = "text" class = "validate" required>
         <label for = "sub3_marks">Subject 3 marks</label>
       </div>
-    </div>-->
+    </div>
 
     <div class = 'container'>
-      <button type='submit' name='btn_login' class='col s12 blue btn btn-large waves-effect'>Update</button>
+      <button type='submit' name='btn_login' class='col s12 blue btn btn-large waves-effect' onclick = "M.toast({html: 'Student record updated successfully!', displayLength: Infinity})">Update</button>
     </div>
     </form>    
   </div>
@@ -190,34 +191,63 @@
       <div class="section"></div>
     <div class="z-depth-3  blue-grey lighten-5  row" style="display: inline-block; padding: 32px 48px 10px 48px;">
       <!--<div class = "section"></div>-->
-      <table class = "centered highlight">
+      <nav>
+        <div class = "grey darken-4 nav-wrapper">
+          <form>
+            <div class = "input-field">
+              <input id = "search" type = "search" placeholder = "Search by first name or roll no" onkeyup =  "filter()" required>
+              <label class= "label-icon" for = "search"><i class = "material-icons">search</i></label>
+              <i class = "material-icons">close</i>
+              </div>
+            </form>
+        </div>
+      </nav>
+
+      <!--{% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="row">
+        <div class="col s12 m10 l10 offset-m1 offset-l1">
+            <div class="chip teal lighten-3" style="padding: 10px 10px 10px 10px; width: 100%; height: 50px;">
+                <i class=" close material-icons right white-text">close</i>
+                
+                <h6>{{message}}<h6>
+            </div>
+        </div>
+    </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}-->
+      
+      
+
+
+
+      <table id = "table_id" class = "centered highlight">
         <thead>
           <tr>
             <th>First Name</th>
             <th>Last name</th>
-            <th>mail</th>
-            <th>password</th>
-            <th>Action</th>
+            <th>Roll Number</th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            <th>Subject 3</th>
+            <th colspan = "2">Action</th>
           </tr>
         </thead>
         
-        {% for teacher in teacherDetails %}
+        {% for student in studentDetails %}
         <tr>
-          <td>{{teacher["First_Name"]}}</td>
-          <td>{{teacher["Last_Name"]}}</td>
-          <td>{{teacher["email"]}}</td>
-          <td>{{teacher["password"]}}</td>
-          <!-- <td><input type="submit" name="delete" value="Delete" >
-              <input type="submit" name="edit" value="Edit"></td> -->
-          <!--<td><center><a href="/update/{{teacher.email}}" class="waves-effect waves-light btn blue modal-trigger">Update</a></center></td>-->
-          <!--<td><center><a href="#modal2/{{teacher.email}}" class="waves-effect waves-light btn blue modal-trigger">Update</a></center></td>-->
-          <td><center><a href="#modal2" class="waves-effect waves-light btn blue modal-trigger" onclick = "change_action('/update/{{teacher.email}}')">Update</a></center></td>
-          <td><a href="/delete/{{teacher.email}}" class="waves-effect waves-light red btn" onclick = "return confirm('Are you sure you want to delete this student?')">Delete</a></td>
+          <td>{{student["First_Name"]}}</td>
+          <td>{{student["Last_name"]}}</td>
+          <td>{{student["Roll_no"]}}</td>
+          <td>{{student["Subject_1"]}}</td>
+          <td>{{student["Subject_2"]}}</td>
+          <td>{{student["Subject_3"]}}</td>
+          <td><center><a href="#modal2" class="waves-effect waves-light btn blue modal-trigger" onclick = "change_action('/update/{{student.Roll_no}}')">Update</a></center></td>
+          <td><a href="/delete/{{student.Roll_no}}" class="waves-effect waves-light red btn" onclick = "return confirm('Are you sure you want to delete this student?'), M.toast({html: 'Student record deleted successfully!', displayLength: Infinity})">Delete</a></td>
           <!--<td><center><a href= "#modal2" class = "waves-effect waves-light btn blue modal-trigger" >Edit</a></center></td>-->
         <!--<td><a href= "" class = "waves-effect waves-light btn red" onclick = "return confirm('Are you sure you want to delete this row?')">Delete</a></td>-->
-      <!--IF UPDATE BUTTON CLICKED. JAVA FUNCTION-->
-      <!--GET HREF ATTRIBUTE FUNTION-->
-      <!--MODAL WITH EMAIL PASSED. ACTION = PYTHON UPDATE FUNCTION-->
         {% endfor %}
 
       </table>
@@ -273,6 +303,29 @@
       frm.action = x
     }
   }
+  </script>
+  <script>
+    function filter(){
+      var input, filter, table, tr, td_f_name, td_roll, i, txtValue;
+      input =  document.getElementById("search");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("table_id");
+      tr = table.getElementsByTagName("tr");
+      
+      for (i = 0; i<tr.length; i++){
+        td_f_name = tr[i].getElementsByTagName("td")[0]; //search by first name
+        td_roll = tr[i].getElementsByTagName('td')[2]; //Search by roll no
+        if (td_f_name && td_roll){
+          f_name = td_f_name.textContent || td_f_name.innerText;
+          roll = td_roll.textContent || td_roll.innerText;
+          if (f_name.toUpperCase().indexOf(filter)>-1 || roll.indexOf(filter)>-1){
+            tr[i].style.display = "";
+          } else{
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
   </script>
   <script src="static/js/materialize.js"></script>
   <script src="static/js/initfinal.js"></script>
