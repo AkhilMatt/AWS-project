@@ -15,7 +15,8 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="" class="brand-logo">Login</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/register"><i class="material-icons left">assignment</i>Register a new account</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
@@ -23,10 +24,11 @@
 </div>
 
 <ul id="nav-mobile" class="sidenav">
-<li><a href="/">Home</a></li>
+  <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+  <li><a href="/register"><i class="material-icons left">assignment</i>Register a new account</a></li>
 </ul>
 
-
+        
   <div class="section"></div>
   <main>
     <center>
@@ -34,7 +36,6 @@
 
       <h5>Login into your account</h5>
       <div class="section"></div>
-
       <div class="container">
         <div class="z-depth-3 blue-grey lighten-5 row" style="display: inline-block; padding: 32px 48px 0px 48px; ">
 
@@ -46,17 +47,17 @@
 
             <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='text' name='username' id='username' />
+                <input class='validate' type='text' name='username' id='username' required>
                 <label for='username'>Enter your name</label>
               </div>
             </div>
 
-            <!--<div class='row'>
+            <div class='row'>
               <div class='input-field col s12'>
-                <input class='validate' type='password' name='password' id='password' />
+                <input class='validate' type='password' name='password' id='password' required>
                 <label for='password'>Enter your password</label>
               </div>
-            </div>-->
+            </div>
 
             <br/>
             
@@ -66,7 +67,7 @@
           </form>
         </div>
       </div>
-      <center><a href="/register">Register a new account</a></center>
+      <!--<center><a href="/register">Register a new account </a></center>-->
     
   <!--</div>-->
   </main>
