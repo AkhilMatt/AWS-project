@@ -6,6 +6,14 @@
   <!--CSS-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    #toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 77%;
+  left:40%;  
+}
+  </style>
 </head>  
 
 <body>         
@@ -13,10 +21,10 @@
   <div class="navbar-fixed">
     <nav class="grey darken-4" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="" class="brand-logo">Teacher Registeration</a>
+        <a id="logo-container" href="" class="brand-logo">Teacher Registration</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="/">Home</a></li>
-          <li><a href="/login">Back to login</a></li>
+          <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+          <li><a href="/login"><i class="material-icons left">account_circle</i>Back to Login</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       </div>
@@ -24,9 +32,10 @@
   </div>
 
 <ul id="nav-mobile" class="sidenav">
-  <li><a href="/">Home</a></li>
-  <li><a href="/login">Back to login</a></li>
+  <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+  <li><a href="/login"><i class="material-icons left">account_circle</i>Back to Login</a></li>
 </ul>
+
 
 <!--Form-->
 <div class ="section"></div>
@@ -107,7 +116,7 @@
 
     
       <div class = 'container'>
-        <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect'>Register</button>
+        <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect' onclick = "M.toast({html: 'Teacher registered successfully!', displayLength: Infinity})">Register</button>
       </div>
 
   <!--<button type="submit" class="registerbtn">Register</button> -->
