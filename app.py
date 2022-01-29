@@ -23,11 +23,15 @@ def insert_student():
         sub2_marks = float(request.form["sub2_marks"])
         sub3_marks = float(request.form["sub3_marks"])
         cur = db.cursor()
-        cur.execute("INSERT INTO student VALUES('%s', '%s','%s','%f','%f','%f')"%(f_name, l_name, roll_no, sub1_marks, sub2_marks, sub3_marks))
-        db.commit()
-        cur.close()
-        return redirect(url_for("account"))
-
+        query = "INSERT INTO student VALUES('%s', '%s','%s','%f','%f','%f')"%(f_name, l_name, roll_no, sub1_marks, sub2_marks, sub3_marks)
+        try:
+            cur.execute(query)
+            db.commit()
+            cur.close()
+            return redirect(url_for("account"))
+        except:
+            return redirect(url_for("account"))
+       
 # registering teachers
 @app.route("/register_teacher", methods = ["POST", "GET"])
 def register_teacher():
@@ -120,14 +124,17 @@ def verify():
     """
     if request.method == "POST":
         password = request.form["password"]
-        return redirect(url_for("account"))
+        first_name = request.form['username']
+        cur = db.cursor()
+        query = "SELECT * FROM teacher WHERE First_Name = '%s' AND password = '%s';"%(first_name, password)
+        response = cur.execute(query)
+        cur.close()
+        if response:
+            return redirect(url_for("account"))
+        else:
+            return render_template("login.html")
     else:
         return render_template("login.html")
-    # if account == exists:
-        # return redirect(url_for("account"))
-    # elif account != exists:
-        # flash_a_message("Account doesn't exist. Ensure correct username and password is entered")
-        # return redirect(url_for("login"))
 
 
 @app.route("/delete/<string:Roll_no>")
@@ -140,9 +147,6 @@ def delete_val(Roll_no):
         #Flash = 'Student record deleted successfully'
         return redirect(url_for("account"))
 
-@app.route('/page')
-def page():
-    return render_template("pagination.html")
 
 # @app.route("/update")
 # def update():
